@@ -1,0 +1,17 @@
+{
+  "name": "es6-node-script",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "start": "npm run build && node dist/index.js"
+  },
+  "repository": "https://github.com/JeffWilkey/es6-node-script.git",
+  "author": "JeffWilkey",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0"
+  }
+}
