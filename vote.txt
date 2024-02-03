@@ -1,0 +1,21 @@
+fetch("https://cryptothegame.com/api/state/vote-data?day=3", {
+  "headers": {
+    "accept": "*/*",
+    "accept-language": "en-US,en;q=0.9",
+    "baggage": "sentry-environment=vercel-production,sentry-release=797d8b5f97721dcb4860c5880bcc9b2e4cb08d9c,sentry-public_key=147ddae615e9816350cfcffb6ea1b9cb,sentry-trace_id=2b766b381d3742c894a93ddbb5958f90,sentry-replay_id=39f1f4cdd83340d0b49f920bede0718c,sentry-sample_rate=1,sentry-sampled=true",
+    "cache-control": "max-age=0",
+    "content-type": "application/json",
+    "sec-ch-ua": "\"Not A(Brand\";v=\"99\", \"Google Chrome\";v=\"121\", \"Chromium\";v=\"121\"",
+    "sec-ch-ua-mobile": "?1",
+    "sec-ch-ua-platform": "\"Android\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "sentry-trace": "2b766b381d3742c894a93ddbb5958f90-8148fac6c805c98e-1",
+    "cookie": "siwes=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjU0cXdyR3dqY3YxbTlqR3FFIiwiYWRkcmVzcyI6IjB4MjM1MDEyNWVhRkZGYzFmZDk0MTIzNDEwZGVDRjM5OERBZDY2ZDMwZiIsImNoYWluSWQiOjEsInN1YiI6IjB4MjM1MDEyNWVhRkZGYzFmZDk0MTIzNDEwZGVDRjM5OERBZDY2ZDMwZiIsInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiaWF0IjoxNzA2ODM3ODE2LCJleHAiOjE3MDk0Mjk4MTZ9.rwSft_l_BxETLTkz1GLqJPvvFsVmizi99ONyDwWtbtM; siwes=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjBINEZWaG8yVmNyTUZtNmM1IiwiYWRkcmVzcyI6IjB4MjM1MDEyNWVhRkZGYzFmZDk0MTIzNDEwZGVDRjM5OERBZDY2ZDMwZiIsImNoYWluSWQiOjEsInN1YiI6IjB4MjM1MDEyNWVhRkZGYzFmZDk0MTIzNDEwZGVDRjM5OERBZDY2ZDMwZiIsInJvbGUiOiJhdXRoZW50aWNhdGVkIiwiaWF0IjoxNzA2OTIyNTU4LCJleHAiOjE3MDk1MTQ1NTh9.NDxE6bJvA8tAjIJuMfYwJiHFolzoTCjVbUcvs2zmvSc; ph_phc_lthChuT6YOg1klhaFfZOY0gdrcyFUlYafVr7zG82st2_posthog=%7B%22distinct_id%22%3A%22018d56f6-ad58-7bf5-976f-e5e567064576%22%2C%22%24device_id%22%3A%22018d56f6-ad58-7bf5-976f-e5e567064576%22%2C%22%24user_state%22%3A%22anonymous%22%2C%22%24sesid%22%3A%5B1706922693882%2C%22018d6b30-8c1d-78a2-8a5f-2c195aeda35f%22%2C1706900360221%5D%2C%22%24client_session_props%22%3A%7B%22sessionId%22%3A%22018d6b30-8c1d-78a2-8a5f-2c195aeda35f%22%2C%22props%22%3A%7B%22initialPathName%22%3A%22%2F%22%2C%22referringDomain%22%3A%22%24direct%22%7D%7D%2C%22%24session_recording_enabled_server_side%22%3Atrue%2C%22%24console_log_recording_enabled_server_side%22%3Atrue%2C%22%24session_recording_recorder_version_server_side%22%3A%22v2%22%2C%22%24session_recording_network_payload_capture%22%3A%7B%22capturePerformance%22%3Atrue%7D%2C%22%24autocapture_disabled_server_side%22%3Afalse%2C%22%24active_feature_flags%22%3A%5B%5D%2C%22%24enabled_feature_flags%22%3A%7B%7D%2C%22%24feature_flag_payloads%22%3A%7B%7D%7D",
+    "Referer": "https://cryptothegame.com/",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  },
+  "body": null,
+  "method": "GET"
+});
