@@ -25,9 +25,11 @@ async function createCsv(data, tribe = "all", eliminatedDay) {
   );
 
   const filterByElimination = filterByTribe.filter((p) =>
-    eliminatedDay ? p.eliminatedDay === eliminatedDay : true
+    eliminatedDay
+      ? p.eliminatedDay === eliminatedDay
+      : typeof p.eliminatedDay !== "number"
   );
-  console.log(filterByElimination);
+  //console.log(filterByElimination);
 
   const records = filterByElimination;
 
@@ -35,45 +37,12 @@ async function createCsv(data, tribe = "all", eliminatedDay) {
   return records;
 }
 
-async function createPacManCsv() {
-  const { data } = await axios("https://cryptothegame.com/api/state/players");
-
-  const {
-    data: { allPlayersLeaderboard },
-  } = await axios("https://cryptothegame.com/api/state/mini-game-result?day=3");
-
-  const dir = `./game-data/all/`;
-  fs.mkdirSync(dir, { recursive: true });
-
-  const csvWriter = createCsvWriter({
-    path: `./game-data/all/pacman.csv`,
-    header: [
-      { id: "tribe", title: "tribe" },
-      { id: "address", title: "address" },
-      { id: "userName", title: "user name" },
-      { id: "displayName", title: "display name" },
-      { id: "score", title: "score" },
-      { id: "attempts", title: "attempts" },
-      { id: "isCheater", title: "isCheater" },
-    ],
-  });
-
-  const filterByTribe = data.players; //.filter((p) => p.tribe === "red");
-  const filterByElimination = filterByTribe.filter(
-    (p) => !p.eliminatedDay || p.eliminatedDay === 0
+async function clockGuesser() {
+  const { data } = await axios(
+    "https://cryptothegame.com/api/state/mini-game?day=4"
   );
 
-  const playersWithScore = filterByElimination.map((player) => {
-    const found = allPlayersLeaderboard.find(
-      (scorer) => scorer.address === player.address
-    );
-
-    return { ...player, ...found };
-  });
-
-  console.log(playersWithScore);
-
-  await csvWriter.writeRecords(playersWithScore);
+  console.log(data);
 }
 
 /* Script Entry */
@@ -81,9 +50,10 @@ async function main() {
   // const { db, client } = await setup();
   const { data } = await axios("https://cryptothegame.com/api/state/players");
   // await createCsv(data);
-  // await createCsv(data, "yellow");
-  await createCsv(data, "all", 3);
-  //await createPacManCsv();
+  // await createCsv(data, "red");
+  await createCsv(data, "all");
+  // await createPacManCsv();
+  // await clockGuesser();
 }
 
 main().then(() => {
