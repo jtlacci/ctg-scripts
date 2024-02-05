@@ -1,10 +1,32 @@
-# es6-node-script
-A dead simple template for ES6 Node Scripts. Allows you to use a package manager of your choice.
+# crypto the game scripts
+
+Mostly for pulling player data
 
 ### Entry Point
-src/index.js
 
-### Usage
-- After cloning run either `yarn install` || `npm install`
-- `npm run build`: Uses babel to compile files in the /src directory and outputs the results into /dist directory
-- `npm start`: Runs the build command and then runs `node dist/index.js` starting the script.
+run `npm install`
+edit src/index.js the run `node .`
+
+use the `createCsv` function to generate a csv of game data can sort by `tribe` or `eliminated day`
+
+theres also some misc functions from daily challenges
+
+### Discord Bot
+
+edit src/bot.js to setup a discord bot that will send updates about challenges then run `node src/bot.js`
+(this is fiddly because there api goes down so often)
+
+### Misc Routes
+
+Get all players: https://cryptothegame.com/api/state/players
+
+Get user info: https://cryptothegame.com/api/state/user
+(Tied to user cookie?)
+
+Get game info: https://cryptothegame.com/api/state/game
+
+Get mini game info: https://cryptothegame.com/api/state/mini-game?day=2
+
+Get mini game results: https://cryptothegame.com/api/state/mini-game-result?day=3
+
+Get total vote tally: https://cryptothegame.com/api/state/vote-tally-count?day=3
