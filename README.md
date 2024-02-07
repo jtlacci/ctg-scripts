@@ -30,3 +30,5 @@ Get mini game info: https://cryptothegame.com/api/state/mini-game?day=2
 Get mini game results: https://cryptothegame.com/api/state/mini-game-result?day=3
 
 Get total vote tally: https://cryptothegame.com/api/state/vote-tally-count?day=3
+
+Get vote data: https://cryptothegame.com/api/state/vote-data?day=6

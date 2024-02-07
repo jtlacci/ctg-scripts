@@ -45,15 +45,98 @@ async function clockGuesser() {
   console.log(data);
 }
 
+async function createPacManCsv() {
+  const { data } = await axios("https://cryptothegame.com/api/state/players");
+
+  const {
+    data: { allPlayersLeaderboard },
+  } = await axios("https://cryptothegame.com/api/state/mini-game-result?day=3");
+
+  const dir = `./game-data/all/`;
+  fs.mkdirSync(dir, { recursive: true });
+
+  const csvWriter = createCsvWriter({
+    path: `./game-data/all/pacman.csv`,
+    header: [
+      { id: "tribe", title: "tribe" },
+      { id: "address", title: "address" },
+      { id: "userName", title: "user name" },
+      { id: "displayName", title: "display name" },
+      { id: "score", title: "score" },
+      { id: "attempts", title: "attempts" },
+      { id: "isCheater", title: "isCheater" },
+    ],
+  });
+
+  const filterByTribe = data.players; //.filter((p) => p.tribe === "red");
+  const filterByElimination = filterByTribe.filter(
+    (p) => !p.eliminatedDay || p.eliminatedDay === 0
+  );
+
+  const playersWithScore = filterByElimination.map((player) => {
+    const found = allPlayersLeaderboard.find(
+      (scorer) => scorer.address === player.address
+    );
+
+    return { ...player, ...found };
+  });
+
+  console.log(playersWithScore);
+
+  await csvWriter.writeRecords(playersWithScore);
+}
+
+async function createFlappyCsv() {
+  const { data } = await axios("https://cryptothegame.com/api/state/players");
+
+  const {
+    data: { allPlayersLeaderboard },
+  } = await axios("https://cryptothegame.com/api/state/mini-game-result?day=7");
+
+  const dir = `./game-data/all/`;
+  fs.mkdirSync(dir, { recursive: true });
+
+  const csvWriter = createCsvWriter({
+    path: `./game-data/all/flappy.csv`,
+    header: [
+      { id: "tribe", title: "tribe" },
+      { id: "address", title: "address" },
+      { id: "userName", title: "user name" },
+      { id: "displayName", title: "display name" },
+      { id: "score", title: "score" },
+      { id: "attempts", title: "attempts" },
+      { id: "isCheater", title: "isCheater" },
+    ],
+  });
+
+  const filterByTribe = data.players; //.filter((p) => p.tribe === "red");
+  const filterByElimination = filterByTribe.filter(
+    (p) => !p.eliminatedDay || p.eliminatedDay === 0
+  );
+
+  const playersWithScore = filterByElimination.map((player) => {
+    const found = allPlayersLeaderboard.find(
+      (scorer) => scorer.address === player.address
+    );
+
+    return { ...player, ...found };
+  });
+
+  console.log(playersWithScore);
+
+  await csvWriter.writeRecords(playersWithScore);
+}
+
 /* Script Entry */
 async function main() {
   // const { db, client } = await setup();
-  const { data } = await axios("https://cryptothegame.com/api/state/players");
+  // const { data } = await axios("https://cryptothegame.com/api/state/players");
   // await createCsv(data);
   // await createCsv(data, "red");
-  await createCsv(data, "all");
+  // await createCsv(data, "all");
   // await createPacManCsv();
   // await clockGuesser();
+  await createFlappyCsv();
 }
 
 main().then(() => {
